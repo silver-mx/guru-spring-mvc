@@ -1,7 +1,16 @@
 package guru.springframework.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Version;
+
+@Entity
 public class Customer implements DomainObject {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	private String firstName;
 	private String lastName;
@@ -12,6 +21,9 @@ public class Customer implements DomainObject {
 	private String city;
 	private String state;
 	private String zipCode;
+	
+	@Version
+	private Integer optimisticLockingVersion;
 
 	public Integer getId() {
 		return id;
@@ -91,6 +103,10 @@ public class Customer implements DomainObject {
 
 	public void setZipCode(String zipCode) {
 		this.zipCode = zipCode;
+	}
+
+	public Integer getOptimisticLockingVersion() {
+		return optimisticLockingVersion;
 	}
 
 }
