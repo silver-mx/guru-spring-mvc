@@ -8,11 +8,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
-import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
-import org.junit.jupiter.api.Assertions
-import org.junit.jupiter.api.BeforeEach
 import org.junit.runner.RunWith;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,7 +44,7 @@ class ProductControllerGroovyTest extends GroovyTestCase {
 		expectedProducts.add(new Product())
 		expectedProducts.add(new Product())
 
-		when(productService.listAllProducts()).thenReturn(expectedProducts)
+		when(productService.listAll()).thenReturn(expectedProducts)
 
 		mockMvc.perform(get("/products")).andExpect(status().isOk()).andExpect(view().name("products"))
 				.andExpect(model().attribute("products", hasSize(2)))

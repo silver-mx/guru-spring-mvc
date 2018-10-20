@@ -59,7 +59,7 @@ public class ProductControllerTest {
 		expectedProducts.add(new Product());
 		expectedProducts.add(new Product());
 
-		when(productService.listAllProducts()).thenReturn(expectedProducts);
+		when(productService.listAll()).thenReturn((List)expectedProducts);
 
 		mockMvc.perform(get("/products")).andExpect(status().isOk()).andExpect(view().name("products"))
 				.andExpect(model().attribute("products", hasSize(2)));
