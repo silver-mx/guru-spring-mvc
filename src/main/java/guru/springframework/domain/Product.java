@@ -100,4 +100,8 @@ public class Product implements DomainObject {
 		return optimisticLockingVersion;
 	}
 
+	public void setOptimisticLockingVersion(Integer optimisticLockingVersion) {
+		this.optimisticLockingVersion = optimisticLockingVersion;
+	}
+
 }
