@@ -3,6 +3,7 @@ package guru.springframework.bootstrap;
 import java.math.BigDecimal;
 
 import org.springframework.context.ApplicationListener;
+import org.springframework.context.annotation.Profile;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
@@ -10,6 +11,7 @@ import guru.springframework.domain.Product;
 import guru.springframework.services.ProductService;
 
 @Component
+@Profile("dev")
 public class SpringJpaBootstrap implements ApplicationListener<ContextRefreshedEvent> {
 
 	private final ProductService productService;
